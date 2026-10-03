@@ -1,0 +1,216 @@
+/* ==========================================
+   Home page - Kendriya Vidyalaya theme
+   (same colours as the attendance page)
+   ========================================== */
+
+:root {
+    --blue: #1c3d8f;
+    --blue-dark: #0f2559;
+    --gold: #f2a900;
+    --bg: #f1f4fa;
+    --card: #ffffff;
+    --text: #1f2937;
+    --border: #d5ddee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* the <br> between the two titles is not needed */
+body > br {
+    display: none;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.Title1,
+.Title2 {
+    margin: 0;
+    text-align: center;
+    background: var(--blue-dark);
+}
+
+.Title1 {
+    padding: 34px 16px 6px;
+    color: #fff;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.Title2 {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 0 16px 30px;
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* tricolour stripe */
+.Title2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background: linear-gradient(90deg,
+        #ff9933 0 33.3%,
+        #ffffff 33.3% 66.6%,
+        #138808 66.6% 100%);
+}
+
+
+/* ---------- CARDS ---------- */
+
+.telling {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.products {
+    flex: 1 1 260px;
+    max-width: 300px;
+    margin: 0;
+    padding: 26px 20px 28px;
+    text-align: center;
+    color: var(--blue-dark);
+    font-size: 1.5rem;
+    font-weight: 1000;
+    line-height: 1.8;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 6px solid var(--gold);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(15, 37, 89, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.products:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(15, 37, 89, 0.16);
+}
+
+/* card title = first line of each card */
+.products::first-line {
+    color: var(--blue);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* tricolour top borders: saffron, blue, green */
+.products:nth-child(1) {
+    border-top-color: #ff9933;
+}
+
+.products:nth-child(2) {
+    border-top-color: var(--blue);
+}
+
+.products:nth-child(3) {
+    border-top-color: #138808;
+}
+
+
+/* ---------- "GET" BUTTONS ---------- */
+
+.excel,
+.tech,
+.website {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 10px 38px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--blue);
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.excel:hover,
+.tech:hover,
+.website:hover {
+    color: var(--blue-dark);
+    background: var(--gold);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.Contach {
+    margin-top: 56px;
+    padding: 28px 16px 32px;
+    text-align: center;
+    color: #fff;
+    background: var(--blue-dark);
+    border-top: 5px solid var(--gold);
+}
+
+.Contach footer h2 {
+    margin: 0 0 12px;
+    color: var(--gold);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.Contach footer h3 {
+    margin: 10px 0 0;
+    color: #dbe4fa;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* footer link overrides the button style above */
+.Contach .website {
+    margin: 0;
+    padding: 0 0 2px;
+    color: #fff;
+    font-weight: 600;
+    background: none;
+    border-bottom: 2px solid var(--gold);
+    border-radius: 0;
+}
+
+.Contach .website:hover {
+    color: var(--gold);
+    background: none;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+    .Title1 {
+        padding-top: 26px;
+        font-size: 1.4rem;
+    }
+
+    .Title2 {
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+    }
+
+    .products {
+        max-width: 100%;
+    }
+}

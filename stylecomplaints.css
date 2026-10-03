@@ -1,0 +1,442 @@
+/* ==========================================
+   Teacher Remarks page - complete stylesheet
+   Kendriya Vidyalaya theme + remark cards
+   ========================================== */
+
+/* ==========================================
+   Kendriya Vidyalaya themed attendance page
+   Colours: royal blue + saffron gold,
+   with a tricolour stripe under the header
+   ========================================== */
+
+:root {
+    --blue: #1c3d8f;
+    --blue-dark: #0f2559;
+    --blue-soft: #e8eefb;
+    --gold: #f2a900;
+    --gold-soft: #fff6dd;
+    --bg: #f1f4fa;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #64748b;
+    --border: #d5ddee;
+    --green: #15803d;
+    --red: #b91c1c;
+    --amber: #b45309;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 40px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.title-3 {
+    position: relative;
+    margin: 0 0 28px;
+    padding: 34px 16px 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+}
+
+.title-3::before {
+    content: "KENDRIYA VIDYALAYA";
+    display: block;
+    margin-bottom: 6px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+/* tricolour stripe */
+.title-3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background: linear-gradient(90deg,
+        #ff9933 0 33.3%,
+        #ffffff 33.3% 66.6%,
+        #138808 66.6% 100%);
+}
+
+
+/* ---------- CARDS ---------- */
+
+.search-box,
+.result {
+    max-width: 560px;
+    margin: 0 auto 24px;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--blue);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 37, 89, 0.08);
+}
+
+/* results stay hidden until JavaScript shows them */
+.result {
+    display: none;
+}
+
+h2 {
+    margin: 0 0 18px;
+    padding-left: 12px;
+    color: var(--blue-dark);
+    font-size: 1.25rem;
+    border-left: 5px solid var(--gold);
+}
+
+h3 {
+    margin: 0 0 8px;
+    color: var(--blue);
+    font-size: 1.05rem;
+}
+
+
+/* ---------- FORM ---------- */
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--blue-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 11px 12px;
+    color: var(--text);
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.35);
+}
+
+select:disabled {
+    color: var(--muted);
+    background: #eef1f7;
+    cursor: not-allowed;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 22px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    background: var(--blue);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: var(--blue-dark);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.search-box button {
+    width: 100%;
+    color: var(--blue-dark);
+    background: var(--gold);
+}
+
+.search-box button:hover {
+    background: #ffbb1f;
+}
+
+
+/* ---------- RESULT TEXT ---------- */
+
+.result p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.result p:last-of-type {
+    border-bottom: none;
+}
+
+.result hr {
+    margin: 12px 0;
+    border: none;
+    border-top: 2px solid var(--blue-soft);
+}
+
+.title-4 {
+    text-align: left;
+}
+
+#studentName,
+#studentRoll,
+#studentClass,
+#studentMonth {
+    color: var(--blue-dark);
+    font-weight: 700;
+}
+
+#totalDays {
+    font-weight: 700;
+}
+
+#presentDays {
+    color: var(--green);
+    font-weight: 700;
+}
+
+#absentDays {
+    color: var(--red);
+    font-weight: 700;
+}
+
+#leaveDays {
+    color: var(--amber);
+    font-weight: 700;
+}
+
+#attendancePercent {
+    padding: 2px 12px;
+    color: var(--blue-dark);
+    font-weight: 700;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+}
+
+
+/* ---------- MONTH / WEEK BLOCKS ---------- */
+
+.month,
+.week {
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    background: #f7f9fe;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+}
+
+.month hr,
+.week hr {
+    display: none;
+}
+
+.month p,
+.week p {
+    padding: 5px 0;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+    .title-3 {
+        font-size: 1.5rem;
+        padding: 26px 12px 24px;
+    }
+
+    .search-box,
+    .result {
+        margin-left: 12px;
+        margin-right: 12px;
+        padding: 18px;
+    }
+}
+#monthlyData {
+    margin-top: 16px;
+}
+
+
+/* ==========================================
+   Remarks page extras
+   ========================================== */
+
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    color: var(--text);
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.35);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.muted {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.empty {
+    justify-content: center;
+}
+
+/* ---------- summary pills ---------- */
+
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 4px;
+}
+
+.pill {
+    padding: 4px 12px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.pill-complaint    { color: var(--red);   background: #fee2e2; }
+.pill-warning      { color: var(--amber); background: #fef3c7; }
+.pill-appreciation { color: var(--green); background: #dcfce7; }
+
+/* ---------- remark cards ---------- */
+
+#remarksList {
+    margin-top: 16px;
+}
+
+.remark {
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    background: #f7f9fe;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 8px;
+}
+
+.remark-complaint    { border-left-color: var(--red); }
+.remark-warning      { border-left-color: #d97706; }
+.remark-appreciation { border-left-color: var(--green); }
+
+.remark-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.badge {
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.badge-complaint    { color: var(--red);   background: #fee2e2; }
+.badge-warning      { color: var(--amber); background: #fef3c7; }
+.badge-appreciation { color: var(--green); background: #dcfce7; }
+
+.remark-date {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.remark-text {
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.remark-meta {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ---------- teacher area ---------- */
+
+.teacher-toggle {
+    max-width: 560px;
+    margin: 0 auto 16px;
+    text-align: center;
+}
+
+.link-button {
+    margin-top: 0;
+    padding: 8px 18px;
+    color: var(--blue);
+    font-size: 0.95rem;
+    background: transparent;
+    border: 1.5px solid var(--blue);
+}
+
+.link-button:hover {
+    color: #fff;
+    background: var(--blue);
+}
+
+#teacherForm {
+    border-top-color: var(--gold);
+}
+
+#teacherForm button {
+    width: 100%;
+}
+
+.form-message {
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+.form-message.ok {
+    color: var(--green);
+}
+
+.form-message.error {
+    color: var(--red);
+}

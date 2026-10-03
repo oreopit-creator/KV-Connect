@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks</title>
+
+    <!-- same theme as attendance page + extra table styles -->
+    <link rel="stylesheet" href="styleattendance.css">
+    <link rel="stylesheet" href="stylemarks.css">
+</head>
+
+<body>
+
+    <h1 class="title-3">Marks</h1>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+
+        <h2>Check Marks</h2>
+
+        <label for="classSelect">Class</label>
+        <select id="classSelect">
+            <option value="">Select Class</option>
+        </select>
+
+        <label for="sectionSelect">Section</label>
+        <select id="sectionSelect" disabled>
+            <option value="">Select Section</option>
+        </select>
+
+        <label for="rollInput">Roll Number</label>
+        <input type="number" id="rollInput" min="1" placeholder="Enter Roll Number">
+
+        <button type="button" onclick="searchStudent()">Search</button>
+
+    </div>
+
+    <!-- OVERALL RESULT (all exams) -->
+    <div id="overall" class="result">
+
+        <h2 class="title-4">Student Marks</h2>
+
+        <p>Name: <span id="studentName"></span></p>
+        <p>Roll No: <span id="studentRoll"></span></p>
+        <p>Class: <span id="studentClass"></span></p>
+
+        <hr>
+
+        <div class="table-wrap" id="summaryData"></div>
+
+        <button type="button" onclick="showDetails()">Subject-wise Marks</button>
+
+    </div>
+
+    <!-- SUBJECT-WISE DETAILS -->
+    <div id="details" class="result">
+
+        <h2>Exam-Wise Marks</h2>
+
+        <label for="examSelect">Select Exam</label>
+        <select id="examSelect"></select>
+
+        <div class="table-wrap" id="detailsData"></div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="marks.js"></script>
+
+</body>
+
+</html>

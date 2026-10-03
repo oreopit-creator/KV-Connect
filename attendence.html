@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="styleattendence.css">
+</head>
+
+<body>
+
+    <h1 class="title-3">Attendance</h1>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+
+        <h2>Check Attendance</h2>
+
+        <label for="classSelect">Class</label>
+        <select id="classSelect">
+            <option value="">Select Class</option>
+        </select>
+
+        <label for="sectionSelect">Section</label>
+        <select id="sectionSelect" disabled>
+            <option value="">Select Section</option>
+        </select>
+
+        <label for="rollInput">Roll Number</label>
+        <input type="number" id="rollInput" min="1" placeholder="Enter Roll Number">
+
+        <button type="button" onclick="searchStudent()">Search</button>
+
+    </div>
+
+    <!-- OVERALL RESULT (full year) -->
+    <div id="overall" class="result">
+
+        <h2 class="title-4">Student Attendance</h2>
+
+        <p>Name: <span id="studentName"></span></p>
+        <p>Roll No: <span id="studentRoll"></span></p>
+        <p>Class: <span id="studentClass"></span></p>
+        <p>Period: <span id="studentPeriod"></span></p>
+
+        <hr>
+
+        <p>Total Working Days: <span id="totalDays"></span></p>
+        <p>Present: <span id="presentDays"></span></p>
+        <p>Absent: <span id="absentDays"></span></p>
+        <p>Leave: <span id="leaveDays"></span></p>
+        <p>Attendance: <span id="attendancePercent"></span></p>
+
+        <button type="button" onclick="showMonthly()">Monthly History</button>
+
+    </div>
+
+    <!-- MONTHLY -->
+    <div id="monthly" class="result">
+
+        <h2>Monthly History</h2>
+
+        <label for="monthSelect">Select Month</label>
+        <select id="monthSelect"></select>
+
+        <div id="monthlyData"></div>
+
+        <button type="button" onclick="showWeekly()">Weekly History</button>
+
+    </div>
+
+    <!-- WEEKLY -->
+    <div id="weekly" class="result">
+
+        <h2>Weekly History</h2>
+
+        <div id="weeklyData"></div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="attendence.js"></script>
+
+</body>
+
+</html>

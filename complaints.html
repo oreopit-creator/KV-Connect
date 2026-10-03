@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Remarks</title>
+    <link rel="stylesheet" href="stylecomplaints.css">
+</head>
+
+<body>
+
+    <h1 class="title-3">Teacher Remarks</h1>
+
+    <!-- VIEW REMARKS -->
+    <div class="search-box">
+
+        <h2>Check Remarks</h2>
+
+        <label for="classSelect">Class</label>
+        <select id="classSelect">
+            <option value="">Select Class</option>
+        </select>
+
+        <label for="sectionSelect">Section</label>
+        <select id="sectionSelect" disabled>
+            <option value="">Select Section</option>
+        </select>
+
+        <label for="rollInput">Roll Number</label>
+        <input type="number" id="rollInput" min="1" placeholder="Enter Roll Number">
+
+        <button type="button" id="viewBtn" onclick="viewRemarks()">View Remarks</button>
+
+    </div>
+
+    <!-- REMARKS RESULT -->
+    <div id="remarksResult" class="result">
+
+        <h2 class="title-4">Remarks</h2>
+
+        <p>Student: <span id="studentLabel"></span></p>
+        <p>Class: <span id="studentClass"></span></p>
+
+        <div id="summaryData" class="summary"></div>
+
+        <label for="typeFilter">Show</label>
+        <select id="typeFilter">
+            <option value="">All remarks</option>
+            <option value="Complaint">Complaints</option>
+            <option value="Warning">Warnings</option>
+            <option value="Appreciation">Appreciation</option>
+        </select>
+
+        <div id="remarksList"></div>
+
+    </div>
+
+    <!-- TEACHER AREA -->
+    <div class="teacher-toggle">
+        <button type="button" class="link-button" onclick="toggleTeacherForm()">
+            Teacher? Add a remark
+        </button>
+        <button type="button" class="link-button" onclick="toggleDeleteForm()">
+            Delete a remark
+        </button>
+    </div>
+
+    <div id="teacherForm" class="result">
+
+        <h2>Add Remark (Teachers only)</h2>
+
+        <label for="tTeacher">Teacher Name</label>
+        <input type="text" id="tTeacher" maxlength="100" placeholder="e.g. Mrs. Sharma">
+
+        <label for="tPin">Teacher PIN</label>
+        <input type="password" id="tPin" maxlength="100" placeholder="Enter PIN" autocomplete="off">
+
+        <label for="tClass">Class</label>
+        <select id="tClass">
+            <option value="">Select Class</option>
+        </select>
+
+        <label for="tSection">Section</label>
+        <select id="tSection" disabled>
+            <option value="">Select Section</option>
+        </select>
+
+        <label for="tRoll">Roll Number</label>
+        <input type="number" id="tRoll" min="1" placeholder="Student roll number">
+
+        <label for="tName">Student Name (optional)</label>
+        <input type="text" id="tName" maxlength="100" placeholder="e.g. Ravi Kumar">
+
+        <label for="tSubject">Subject (optional)</label>
+        <input type="text" id="tSubject" maxlength="100" placeholder="e.g. Maths">
+
+        <label for="tType">Type</label>
+        <select id="tType">
+            <option value="Complaint">Complaint</option>
+            <option value="Warning">Warning</option>
+            <option value="Appreciation">Appreciation</option>
+        </select>
+
+        <label for="tRemark">Remark</label>
+        <textarea id="tRemark" rows="4" maxlength="500" placeholder="Write the remark (max 500 characters)"></textarea>
+
+        <button type="button" id="saveBtn" onclick="submitRemark()">Save Remark</button>
+
+        <div id="formMessage" class="form-message"></div>
+
+    </div>
+
+    <!-- DELETE A REMARK (teachers) -->
+    <div id="deleteForm" class="result">
+
+        <h2>Delete Remark (Teachers only)</h2>
+
+        <label for="dPin">Teacher PIN</label>
+        <input type="password" id="dPin" maxlength="100" placeholder="Enter PIN" autocomplete="off">
+
+        <label for="dClass">Class</label>
+        <select id="dClass">
+            <option value="">Select Class</option>
+        </select>
+
+        <label for="dSection">Section</label>
+        <select id="dSection" disabled>
+            <option value="">Select Section</option>
+        </select>
+
+        <label for="dRoll">Roll Number</label>
+        <input type="number" id="dRoll" min="1" placeholder="Student roll number">
+
+        <button type="button" id="loadDeleteBtn" onclick="loadForDelete()">Load Remarks</button>
+
+        <div id="deleteMessage" class="form-message"></div>
+
+        <div id="deleteList"></div>
+
+    </div>
+
+    <script src="complaints.js"></script>
+
+</body>
+
+</html>
